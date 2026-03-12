@@ -1,0 +1,24 @@
+body{
+margin:0;
+font-family:sans-serif;
+}
+
+#ui{
+
+position:fixed;
+bottom:40px;
+width:100%;
+text-align:center;
+
+}
+
+button{
+
+padding:15px 25px;
+font-size:18px;
+border-radius:10px;
+border:none;
+background:#1976ff;
+color:white;
+
+}
