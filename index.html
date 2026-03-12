@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="ru">
-
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AR Тур Центротех</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>AR Тур Центрик</title>
 
 <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-
-<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/ar.js@3.3.2/aframe/build/aframe-ar.js"></script>
 
 <style>
+
 body{
 margin:0;
-font-family:Arial, sans-serif;
-background:#000;
+overflow:hidden;
+font-family:Arial;
 }
 
 #loader{
@@ -24,9 +24,8 @@ bottom:120px;
 left:50%;
 transform:translateX(-50%);
 background:white;
-padding:15px 25px;
+padding:12px 25px;
 border-radius:10px;
-font-size:16px;
 }
 
 #ui{
@@ -38,13 +37,14 @@ justify-content:center;
 }
 
 button{
-padding:15px 30px;
+padding:15px 25px;
 font-size:18px;
 background:#1976ff;
 color:white;
 border:none;
 border-radius:10px;
 }
+
 </style>
 
 </head>
@@ -61,25 +61,21 @@ border-radius:10px;
 
 <a-scene
 embedded
+arjs="sourceType: webcam; debugUIEnabled: false;"
 vr-mode-ui="enabled: false"
-device-orientation-permission-ui="enabled: false"
 >
 
-<a-camera position="0 1.6 0"></a-camera>
+<a-marker preset="hiro">
 
 <a-box
-position="0 1 -3"
-rotation="0 45 0"
-color="#4CC3D9"
-animation="property: rotation; to: 0 405 0; loop: true; dur: 6000">
+position="0 0.5 0"
+color="red"
+animation="property: rotation; to: 0 360 0; loop: true; dur: 4000">
 </a-box>
 
-<a-text
-value="Центрик AR Тур"
-position="-1 2 -3"
-color="white"
-width="4">
-</a-text>
+</a-marker>
+
+<a-entity camera></a-entity>
 
 </a-scene>
 
