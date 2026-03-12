@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>AR Тур Центрик</title>
+<title>AR Тур</title>
 
 <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/ar.js@3.3.2/aframe/build/aframe-ar.js"></script>
@@ -18,26 +18,15 @@ overflow:hidden;
 font-family:Arial;
 }
 
-#loader{
-position:fixed;
-bottom:120px;
-left:50%;
-transform:translateX(-50%);
-background:white;
-padding:12px 25px;
-border-radius:10px;
-}
-
 #ui{
 position:fixed;
-bottom:30px;
+bottom:20px;
 width:100%;
-display:flex;
-justify-content:center;
+text-align:center;
 }
 
 button{
-padding:15px 25px;
+padding:15px 30px;
 font-size:18px;
 background:#1976ff;
 color:white;
@@ -51,18 +40,15 @@ border-radius:10px;
 
 <body>
 
-<div id="loader">
-Загрузка AR...
-</div>
-
 <div id="ui">
 <button onclick="nextStep()">Следующий этап</button>
 </div>
 
 <a-scene
 embedded
-arjs="sourceType: webcam; debugUIEnabled: false;"
+arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
 vr-mode-ui="enabled: false"
+renderer="logarithmicDepthBuffer: true;"
 >
 
 <a-marker preset="hiro">
@@ -79,7 +65,30 @@ animation="property: rotation; to: 0 360 0; loop: true; dur: 4000">
 
 </a-scene>
 
-<script src="script.js"></script>
+<script>
+
+let step = 0
+
+function nextStep(){
+
+step++
+
+const stages = [
+"Добро пожаловать на завод!",
+"Ценность 1: Безопасность",
+"Ценность 2: Ответственность",
+"Ценность 3: Команда",
+"Ценность 4: Эффективность",
+"Все ценности собраны!"
+]
+
+if(step < stages.length){
+alert(stages[step])
+}
+
+}
+
+</script>
 
 </body>
 </html>
