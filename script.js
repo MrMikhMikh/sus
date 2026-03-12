@@ -1,43 +1,29 @@
-let step = 0
+let step = 0;
 
-let texts = [
-
-"Добро пожаловать на завод Центротех!",
-
-"Здесь производится современное оборудование.",
-
-"Операторы управляют высокоточными станками.",
-
-"После обработки детали проходят очистку.",
-
-"Затем наносится защитное покрытие.",
-
-"На финальном этапе происходит сборка."
-
-]
+window.onload = function(){
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+},2000);
+}
 
 function nextStep(){
 
-step++
+step++;
 
-if(step>5) step=0
+const stages = [
+"Добро пожаловать на завод Центротех!",
+"Точка 1: Холл — надеваем СИЗ",
+"Точка 2: Производство систем очистки",
+"Точка 3: Участок СОБР",
+"Точка 4: Покраска оборудования",
+"Точка 5: Оператор станков ЧПУ",
+"Финал: Все ценности Росатома собраны!"
+];
 
-let image = document.querySelector("#factoryImage")
-let text = document.querySelector("#text")
-
-image.setAttribute("src","#img"+(step+1))
-text.setAttribute("value",texts[step])
-
-speech(texts[step])
-
+if(step < stages.length){
+alert(stages[step]);
+}else{
+alert("Экскурсия завершена!");
 }
-
-function speech(t){
-
-let msg = new SpeechSynthesisUtterance(t)
-
-msg.lang = "ru-RU"
-
-speechSynthesis.speak(msg)
 
 }
