@@ -33,6 +33,24 @@
 <button id="next">Следующий этап</button>
 </div>
 
+<a-scene embedded>
+
+<a-assets>
+<a-asset-item id="machine" src="assets/machine.glb"></a-asset-item>
+</a-assets>
+
+<a-entity
+id="machineModel"
+gltf-model="#machine"
+position="0 0 -2"
+scale="0.3 0.3 0.3"
+visible="false">
+</a-entity>
+
+<a-entity camera></a-entity>
+
+</a-scene>
+
 <script>
 
 const startBtn = document.getElementById("start")
@@ -63,17 +81,11 @@ let step = 0
 const stages = [
 
 "Добро пожаловать на завод Центротех!",
-
 "Ценность 1: Безопасность",
-
 "Ценность 2: Ответственность",
-
 "Ценность 3: Уважение",
-
 "Ценность 4: Единая команда",
-
 "Ценность 5: Эффективность",
-
 "Ценность 6: На шаг впереди"
 
 ]
@@ -83,35 +95,22 @@ document.getElementById("next").onclick = () => {
 step++
 
 if(step < stages.length){
-
 alert(stages[step])
-
 }else{
-
 alert("Экскурсия завершена!")
-
 }
 
 }
+
+const model = document.querySelector("#machineModel")
+
+document.addEventListener("click", function(){
+
+model.setAttribute("visible", true)
+
+})
 
 </script>
-
-<a-scene embedded>
-
-<a-assets>
-<a-asset-item id="machine" src="assets/machine.glb"></a-asset-item>
-</a-assets>
-
-<a-entity
-gltf-model="#machine"
-position="0 0 -3"
-scale="0.4 0.4 0.4"
-rotation="0 180 0">
-</a-entity>
-
-<a-entity camera></a-entity>
-
-</a-scene>
 
 </body>
 </html>
