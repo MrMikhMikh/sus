@@ -384,9 +384,13 @@ let dialogStep = 0
 let currentDialog = []
 
 const modelViewerWrap = document.getElementById('modelViewerWrap')
+const dialogBg = document.getElementById('dialogBg')
 
 function startDialog(){
-  centrikBox.style.backgroundImage = `url('${backgrounds[currentPoint-1]}')`
+  dialogBg.style.backgroundImage = `url('${backgrounds[currentPoint-1]}')`
+  dialogBg.style.display = 'block'
+  centrikBox.style.background = 'none'
+  centrikBox.style.backgroundColor = 'transparent' 
   currentDialog = dialogs[currentPoint-1]
   dialogStep = 0
 
@@ -427,6 +431,7 @@ function showDialog(step){
     if(currentPoint === 10){
       setTimeout(() => {
         centrikBox.style.display = "none"
+        dialogBg.style.display = "none"
         finishSound.play()
         finalScreen.style.display = "flex"
         showFarewellMessage()
@@ -442,6 +447,7 @@ function showDialog(step){
 
 nextQR.onclick = () => {
   centrikBox.style.display = "none"
+  dialogBg.style.display = "none"
   reader.style.display = "block"
   nextQR.style.display = "none"
   startScanner()
