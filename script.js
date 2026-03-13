@@ -3,6 +3,8 @@ const scene = document.getElementById("scene")
 const startScreen = document.getElementById("startScreen")
 
 const text = document.getElementById("text")
+const status = document.getElementById("status")
+
 const percent = document.getElementById("percent")
 const circle = document.getElementById("circle")
 
@@ -32,7 +34,7 @@ const dialogs = [
 
 "Механосборочный участок.",
 
-"Здесь работает оператор станков ЧПУ.",
+"Здесь работает оператор ЧПУ.",
 
 "Здесь работает токарь.",
 
@@ -57,6 +59,8 @@ const marker = document.querySelector("a-marker")
 
 marker.addEventListener("markerFound", () => {
 
+status.innerText = "QR найден"
+
 step++
 
 if(step < dialogs.length){
@@ -74,6 +78,12 @@ updateCircle()
 text.innerText += "\n⭐ Ценность: " + values[step]
 
 }
+
+})
+
+marker.addEventListener("markerLost", () => {
+
+status.innerText = "QR не найден"
 
 })
 

@@ -17,19 +17,31 @@
 
 <body>
 
-<!-- экран запуска -->
+<!-- стартовый экран -->
 
 <div id="startScreen">
 
-<h2>Нажмите AR и сканируйте QR-коды</h2>
+<h2>Нажмите кнопку и отсканируйте QR</h2>
 
 <button id="startAR">
-Запустить AR
+Сканировать QR
 </button>
 
 </div>
 
-<!-- прогресс -->
+<!-- статус -->
+
+<div id="status">
+QR не найден
+</div>
+
+<!-- диалог -->
+
+<div id="dialog">
+<div id="text"></div>
+</div>
+
+<!-- круг -->
 
 <div id="progress">
 
@@ -37,12 +49,6 @@
 <div id="percent">0%</div>
 </div>
 
-</div>
-
-<!-- диалог -->
-
-<div id="dialog">
-<div id="text"></div>
 </div>
 
 <!-- AR сцена -->
@@ -64,8 +70,8 @@ style="display:none"
 
 <a-image
 src="#centrikImg"
-position="0 0.4 0"
-scale="0.2 0.2 0.2">
+position="0 0.5 0"
+scale="0.25 0.25 0.25">
 </a-image>
 
 </a-marker>
