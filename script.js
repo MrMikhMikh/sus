@@ -22,16 +22,16 @@ let currentPoint = 0
 let valuesFound = 0
 
 const backgrounds = [
-  'assets/ФОТО1.jpg',  // точка 1 — холл, СИЗ
-  'assets/ФОТО2.jpg',  // точка 2 — дверь на производство
-  'assets/ФОТО3.jpg',  // точка 3 — участок СОБР
-  'assets/ФОТО4.jpg',  // точка 4 — вибросито
-  'assets/ФОТО5.jpg',  // точка 5 — покраска
-  'assets/ФОТО6.jpg',  // точка 6 — мехсборка
-  'assets/ФОТО7.jpg',  // точка 7 — оператор ЧПУ
-  'assets/ФОТО8.jpg',  // точка 8 — токарь
-  'assets/ФОТО9.jpg',  // точка 9 — слесарь
-  'assets/ФОТО10.jpg', // точка 10 — финал
+  'assets/holl.jpg',  // точка 1 — холл, СИЗ
+  'assets/door.jpg',  // точка 2 — дверь на производство
+  'assets/SOBR.jpg',  // точка 3 — участок СОБР
+  'assets/Wibrosito.jpg',  // точка 4 — вибросито
+  'assets/Paint.jpg',  // точка 5 — покраска
+  'assets/Mexsborka.jpg',  // точка 6 — мехсборка
+  'assets/Operator.jpg',  // точка 7 — оператор ЧПУ
+  'assets/chpu.jpg',  // точка 8 — токарь
+  'assets/Tokar.jpg',  // точка 9 — слесарь
+  'assets/final.jpg', // точка 10 — финал
 ]
 
 function addValue(){
