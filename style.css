@@ -1,12 +1,18 @@
+html, body{
+height:100%;
+}
 body{
 margin:0;
 font-family:Arial;
 overflow:hidden;
 
-background:url("assets/6.jpg");
+background-image:url("assets/6.jpg");
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
+background-attachment:fixed;
+
+height:100vh;
 
 }
 
