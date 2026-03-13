@@ -1,3 +1,5 @@
+const valuesCircle = document.getElementById("valuesCircle")
+let valuesFound = 0
 const startBtn = document.getElementById("startScan")
 const reader = document.getElementById("reader")
 const centrikBox = document.getElementById("centrikBox")
@@ -115,6 +117,8 @@ if(dialog[step].answers.length === 0){
 
 answers.innerHTML = ""
 
+addValue()
+
 nextQR.style.display = "block"
 
 }else{
@@ -138,5 +142,15 @@ nextQR.style.display = "none"
 dialogStep = 0
 
 startScanner()
+
+}
+
+function addValue(){
+
+valuesFound++
+
+let opacity = 0.25 + valuesFound * 0.12
+
+valuesCircle.style.opacity = opacity
 
 }
