@@ -1,62 +1,46 @@
+
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>AR экскурсия Центротех</title>
-
 <link rel="stylesheet" href="style.css">
-
 <script src="https://unpkg.com/html5-qrcode"></script>
-
 </head>
-
 <body>
-
-<!-- круг ценностей -->
 
 <div id="valuesHUD">
 <img src="assets/values.png" id="valuesCircle">
 </div>
 
-<!-- стартовый экран -->
-
 <div id="startScreen">
-
 <h2>Нажмите кнопку и сканируйте QR код</h2>
-
-<button id="startScan">
-Сканировать QR
-</button>
-
+<button id="startScan">Сканировать QR</button>
 </div>
-
-<!-- камера -->
 
 <div id="reader"></div>
 
-<!-- центрик -->
-
 <div id="centrikBox">
-
 <img src="assets/centrik.png" id="centrik">
-
 <div id="dialog">
-
 <div id="speech"></div>
-
 <div id="answers"></div>
-
+</div>
+<button id="nextQR">Сканировать следующий QR</button>
 </div>
 
-<button id="nextQR">
-Сканировать следующий QR
-</button>
-
+<div id="finalScreen">
+<img src="assets/values.png" id="finalLogo">
+<h1>Вы собрали все ценности!</h1>
+<p>Добро пожаловать в команду Центротех</p>
+<button id="restart">Начать заново</button>
 </div>
+
+<audio id="bgMusic" src="assets/sound/music.mp3" loop></audio>
+<audio id="clickSound" src="assets/sound/click.mp3"></audio>
+<audio id="valueSound" src="assets/sound/value.mp3"></audio>
+<audio id="finishSound" src="assets/sound/finish.mp3"></audio>
 
 <script src="script.js"></script>
 

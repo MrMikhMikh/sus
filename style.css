@@ -1,184 +1,134 @@
-body{
 
+body{
 margin:0;
 font-family:Arial;
 background:#f2f2f2;
 text-align:center;
-
 }
 
-/* круг ценностей */
-
 #valuesHUD{
-
 position:fixed;
-
 top:20px;
 right:20px;
-
 width:110px;
-
 z-index:999;
-
 }
 
 #valuesCircle{
-
 width:100%;
-
 opacity:0.25;
-
 transition:0.6s;
-
 }
 
-/* старт */
-
 #startScreen{
-
 position:fixed;
-
 top:0;
 left:0;
-
 width:100%;
 height:100%;
-
 background:white;
-
 display:flex;
-
 flex-direction:column;
-
 justify-content:center;
 align-items:center;
-
 }
 
 button{
-
 padding:15px 25px;
-
 font-size:18px;
-
 background:#2f80ed;
-
 color:white;
-
 border:none;
-
 border-radius:10px;
-
 }
-
-/* камера */
 
 #reader{
-
 width:100%;
 max-width:400px;
-
 margin:auto;
-
 display:none;
-
 }
 
-/* центрик */
-
 #centrikBox{
-
 display:none;
-
 margin-top:20px;
-
 flex-direction:column;
-
 align-items:center;
-
 }
 
 #centrik{
-
 width:180px;
-
 margin-bottom:20px;
-
 }
-
-/* диалог */
 
 #dialog{
-
 width:90%;
 max-width:350px;
-
 display:flex;
-
 flex-direction:column;
-
 align-items:center;
-
 }
-
-/* сообщение */
 
 #speech{
-
 background:white;
-
 padding:15px;
-
 border-radius:12px;
-
 width:100%;
-
 margin-bottom:15px;
-
 box-shadow:0 4px 10px rgba(0,0,0,0.1);
-
 }
 
-/* ответы */
-
 #answers{
-
 width:100%;
-
 display:flex;
-
 flex-direction:column;
-
 gap:10px;
-
 }
 
 .answer{
-
 width:100%;
-
 padding:12px;
-
 border:none;
-
 border-radius:8px;
-
 background:#2f80ed;
-
 color:white;
-
 font-size:16px;
-
 }
 
-/* следующий qr */
-
 #nextQR{
-
 margin-top:20px;
-
 display:none;
-
 background:#27ae60;
+}
 
+#finalScreen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#0b1b2b;
+color:white;
+display:none;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+z-index:2000;
+}
+
+#finalLogo{
+width:220px;
+margin-bottom:30px;
+animation:logoGlow 2s infinite alternate;
+}
+
+@keyframes logoGlow{
+from{transform:scale(1);opacity:0.8;}
+to{transform:scale(1.1);opacity:1;}
+}
+
+#restart{
+margin-top:30px;
+background:#2ecc71;
 }
