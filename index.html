@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="style.css">
 
 <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-<script src="https://unpkg.com/aframe-ar-hit-test-component/dist/aframe-ar-hit-test-component.min.js"></script>
 
 </head>
 
@@ -18,12 +17,23 @@
 
 <button id="start">Запустить AR</button>
 
+<!-- Круговая шкала -->
+<div id="progressCircle">
+
+<div id="circle">
+<div id="percent">0%</div>
+</div>
+
+</div>
+
+<!-- Центрик -->
+
 <div id="centrikBox">
 
 <img id="centrik" src="assets/centrik.png">
 
 <div id="speech">
-Привет, я Центрик!
+Привет! Я Центрик. Нажми "Следующая точка", чтобы начать экскурсию.
 </div>
 
 </div>
@@ -31,7 +41,7 @@
 <video id="camera" autoplay playsinline></video>
 
 <div id="ui">
-<button id="next">Следующий этап</button>
+<button id="next">Следующая точка</button>
 </div>
 
 <a-scene embedded>
@@ -40,15 +50,16 @@
 <a-asset-item id="machine" src="assets/machine.glb"></a-asset-item>
 </a-assets>
 
-<a-light type="ambient" intensity="0.8"></a-light>
+<a-light type="ambient" intensity="1"></a-light>
 
 <a-light
 type="directional"
-position="1 2 1"
-intensity="1">
+position="1 3 2"
+intensity="1.2">
 </a-light>
 
 <a-entity
+id="machineModel"
 gltf-model="#machine"
 scale="0.2 0.2 0.2"
 position="0 -0.5 -4"
@@ -59,66 +70,7 @@ rotation="-90 180 0">
 
 </a-scene>
 
-<script>
-
-const startBtn = document.getElementById("start")
-const video = document.getElementById("camera")
-
-startBtn.onclick = async () => {
-
-try{
-
-const stream = await navigator.mediaDevices.getUserMedia({
-video:{facingMode:"environment"}
-})
-
-video.srcObject = stream
-video.style.display = "block"
-startBtn.style.display = "none"
-
-}catch(e){
-
-alert("Не удалось получить доступ к камере")
-
-}
-
-}
-
-let step = 0
-
-const stages = [
-
-"Добро пожаловать на завод Центротех!",
-"Ценность 1: Безопасность",
-"Ценность 2: Ответственность",
-"Ценность 3: Уважение",
-"Ценность 4: Единая команда",
-"Ценность 5: Эффективность",
-"Ценность 6: На шаг впереди"
-
-]
-
-document.getElementById("next").onclick = () => {
-
-step++
-
-if(step < stages.length){
-alert(stages[step])
-}else{
-alert("Экскурсия завершена!")
-}
-
-}
-
-const model = document.querySelector("#machineModel")
-
-document.addEventListener("click", function(){
-
-model.setAttribute("visible", true)
-
-})
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
