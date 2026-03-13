@@ -127,7 +127,12 @@ answers.appendChild(btn)
 
 if(dialog[step].answers.length === 0){
 
+answers.innerHTML = ""
 nextQR.style.display = "block"
+
+}else{
+
+nextQR.style.display = "none"
 
 }
 
