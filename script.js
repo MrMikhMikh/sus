@@ -8,6 +8,10 @@ const nextQR = document.getElementById("nextQR")
 
 const valuesCircle = document.getElementById("valuesCircle")
 
+let qrScanner
+
+let currentPoint = 0
+
 let valuesFound = 0
 
 function addValue(){
@@ -20,9 +24,7 @@ valuesCircle.style.opacity = opacity
 
 }
 
-/* QR сканер */
-
-let qrScanner
+/* запуск камеры */
 
 startBtn.onclick = () => {
 
@@ -44,7 +46,7 @@ qrScanner.start(
 
 { fps: 10, qrbox: 250 },
 
-(qrCodeMessage) => {
+() => {
 
 qrScanner.stop()
 
@@ -52,7 +54,9 @@ reader.style.display = "none"
 
 centrikBox.style.display = "flex"
 
-showDialog(0)
+currentPoint++
+
+startDialog()
 
 }
 
@@ -62,69 +66,167 @@ showDialog(0)
 
 /* диалоги */
 
+const dialogs = [
+
+[
+{
+text:"Привет! Добро пожаловать в холл Центротеха. Здесь мы получаем средства индивидуальной защиты.",
+answers:[
+{ text:"А зачем они?", next:1 },
+{ text:"Хорошо, надеваю СИЗ", next:2 }
+]
+},
+{
+text:"Безопасность — главная ценность на производстве.",
+answers:[
+{ text:"Понятно", next:2 }
+]
+},
+{
+text:"Отлично! Теперь можно идти дальше.",
+answers:[]
+}
+],
+
+[
+{
+text:"Перед тобой дверь на производство.",
+answers:[
+{ text:"Как проходит контроль?", next:1 }
+]
+},
+{
+text:"Система проверяет наличие СИЗ перед входом.",
+answers:[]
+}
+],
+
+[
+{
+text:"Это участок №3. Здесь изготавливают системы очистки бурового раствора.",
+answers:[
+{ text:"Интересно", next:1 }
+]
+},
+{
+text:"Эти системы используются на буровых установках.",
+answers:[]
+}
+],
+
+[
+{
+text:"Перед тобой вибросито — часть системы СОБР.",
+answers:[
+{ text:"Что оно делает?", next:1 }
+]
+},
+{
+text:"Оно очищает буровой раствор от твёрдых частиц.",
+answers:[]
+}
+],
+
+[
+{
+text:"Здесь происходит покраска оборудования.",
+answers:[
+{ text:"Почему это важно?", next:1 }
+]
+},
+{
+text:"Покраска защищает оборудование от коррозии.",
+answers:[]
+}
+],
+
+[
+{
+text:"Это механосборочный участок.",
+answers:[
+{ text:"Что здесь делают?", next:1 }
+]
+},
+{
+text:"Здесь собирают основные узлы оборудования.",
+answers:[]
+}
+],
+
+[
+{
+text:"Перед тобой оператор станка с ЧПУ.",
+answers:[
+{ text:"Что такое ЧПУ?", next:1 }
+]
+},
+{
+text:"Это станки с программным управлением для точной обработки деталей.",
+answers:[]
+}
+],
+
+[
+{
+text:"Это токарь.",
+answers:[
+{ text:"Что он делает?", next:1 }
+]
+},
+{
+text:"Токарь изготавливает детали цилиндрической формы.",
+answers:[]
+}
+],
+
+[
+{
+text:"Это слесарь монтажно-сборочных работ.",
+answers:[
+{ text:"Чем он занимается?", next:1 }
+]
+},
+{
+text:"Он собирает готовые конструкции оборудования.",
+answers:[]
+}
+],
+
+[
+{
+text:"Поздравляю! Ты прошёл все точки экскурсии.",
+answers:[
+{ text:"Отлично!", next:1 }
+]
+},
+{
+text:"Ты познакомился с производством и ценностями компании.",
+answers:[]
+}
+]
+
+]
+
 let dialogStep = 0
+let currentDialog = []
 
-const dialog = [
+function startDialog(){
 
-{
+currentDialog = dialogs[currentPoint-1]
 
-text:"Здравствуйте! Добро пожаловать в холл Центротеха. Где ваши средства индивидуальной защиты?",
+dialogStep = 0
 
-answers:[
-{ text:"Сейчас надену СИЗ", next:1 },
-{ text:"А зачем они?", next:2 }
-]
-
-},
-
-{
-
-text:"Отлично! На производстве безопасность — это культура.",
-
-answers:[
-{ text:"Понятно", next:3 },
-{ text:"Интересно", next:3 }
-]
-
-},
-
-{
-
-text:"Без СИЗ на производство нельзя. Даже директор не сможет пройти.",
-
-answers:[
-{ text:"Хорошо, надеваю", next:3 }
-]
-
-},
-
-{
-
-text:"Наши инженеры разработали систему контроля доступа без СИЗ.",
-
-answers:[
-{ text:"Готов идти дальше", next:4 }
-]
-
-},
-
-{
-
-text:"Отлично! Жду вас у дверей на производство.",
-
-answers:[ ]
+showDialog(dialogStep)
 
 }
 
-]
-
 function showDialog(step){
 
-speech.innerText = dialog[step].text
+speech.innerText = currentDialog[step].text
 
 answers.innerHTML = ""
 
-dialog[step].answers.forEach(answer => {
+currentDialog[step].answers.forEach(answer => {
 
 let btn = document.createElement("button")
 
@@ -144,11 +246,15 @@ answers.appendChild(btn)
 
 })
 
-if(dialog[step].answers.length === 0){
+if(currentDialog[step].answers.length === 0){
 
 answers.innerHTML = ""
 
+if(currentPoint==1||currentPoint==3||currentPoint==6||currentPoint==7||currentPoint==8||currentPoint==9){
+
 addValue()
+
+}
 
 nextQR.style.display = "block"
 
@@ -169,8 +275,6 @@ centrikBox.style.display = "none"
 reader.style.display = "block"
 
 nextQR.style.display = "none"
-
-dialogStep = 0
 
 startScanner()
 
