@@ -383,10 +383,20 @@ const dialogs = [
 let dialogStep = 0
 let currentDialog = []
 
+const modelViewerWrap = document.getElementById('modelViewerWrap')
+
 function startDialog(){
   centrikBox.style.backgroundImage = `url('${backgrounds[currentPoint-1]}')`
   currentDialog = dialogs[currentPoint-1]
   dialogStep = 0
+
+  // Показываем 3D модель только на точке 8 (токарь)
+  if(currentPoint === 8){
+    modelViewerWrap.style.display = 'block'
+  } else {
+    modelViewerWrap.style.display = 'none'
+  }
+
   showDialog(dialogStep)
 }
 

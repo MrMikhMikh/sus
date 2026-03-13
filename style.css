@@ -244,3 +244,16 @@ filter:brightness(0) invert(1);
 height:30px;
 width:auto;
 }
+
+#modelViewerWrap{
+width:90%;
+max-width:380px;
+margin:0 auto 16px;
+}
+
+#modelLabel{
+color:#a0c4e8;
+font-size:13px;
+margin:0 0 8px;
+text-align:center;
+}
