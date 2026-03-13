@@ -1,21 +1,17 @@
 const startBtn = document.getElementById("startScan")
-
 const reader = document.getElementById("reader")
-
 const centrikBox = document.getElementById("centrikBox")
 
 const speech = document.getElementById("speech")
-
 const answers = document.getElementById("answers")
-
 const nextQR = document.getElementById("nextQR")
 
 let dialogStep = 0
+let qrScanner
 
 startBtn.onclick = () => {
 
 document.getElementById("startScreen").style.display = "none"
-
 reader.style.display = "block"
 
 startScanner()
@@ -24,15 +20,17 @@ startScanner()
 
 function startScanner(){
 
-const qr = new Html5Qrcode("reader")
+qrScanner = new Html5Qrcode("reader")
 
-qr.start(
-
+qrScanner.start(
 { facingMode: "environment" },
-
 { fps: 10, qrbox: 250 },
 
 (qrCodeMessage) => {
+
+/* остановить сканер */
+
+qrScanner.stop()
 
 reader.style.display = "none"
 
@@ -51,53 +49,38 @@ showDialog(0)
 const dialog = [
 
 {
-
 text:"Здравствуйте! Добро пожаловать в холл Центротеха. Где ваши средства индивидуальной защиты?",
-
 answers:[
 { text:"Сейчас надену СИЗ", next:1 },
 { text:"А зачем они?", next:2 }
 ]
-
 },
 
 {
-
 text:"Отлично! На производстве безопасность — это культура.",
-
 answers:[
 { text:"Понятно", next:3 },
 { text:"Интересно", next:3 }
 ]
-
 },
 
 {
-
 text:"Без СИЗ на производство нельзя. Даже директор не сможет пройти.",
-
 answers:[
 { text:"Хорошо, надеваю", next:3 }
 ]
-
 },
 
 {
-
 text:"Наши инженеры разработали систему контроля доступа без СИЗ.",
-
 answers:[
 { text:"Готов идти дальше", next:4 }
 ]
-
 },
 
 {
-
 text:"Отлично! Жду вас у дверей на производство.",
-
-answers:[ ]
-
+answers:[]
 }
 
 ]
@@ -151,6 +134,8 @@ centrikBox.style.display = "none"
 reader.style.display = "block"
 
 nextQR.style.display = "none"
+
+dialogStep = 0
 
 startScanner()
 
