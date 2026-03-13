@@ -170,9 +170,26 @@ position:fixed;
 top:20px;
 right:20px;
 
-width:110px;
+width:130px;
+height:130px;
 
 z-index:999;
+
+}
+
+.valueLayer{
+
+position:absolute;
+
+width:100%;
+
+}
+
+.value{
+
+opacity:0;
+
+transition:0.6s;
 
 }
 

@@ -1,5 +1,3 @@
-const valuesCircle = document.getElementById("valuesCircle")
-let valuesFound = 0
 const startBtn = document.getElementById("startScan")
 const reader = document.getElementById("reader")
 const centrikBox = document.getElementById("centrikBox")
@@ -8,12 +6,41 @@ const speech = document.getElementById("speech")
 const answers = document.getElementById("answers")
 const nextQR = document.getElementById("nextQR")
 
-let dialogStep = 0
+/* круг ценностей */
+
+const values = [
+
+document.getElementById("v1"),
+document.getElementById("v2"),
+document.getElementById("v3"),
+document.getElementById("v4"),
+document.getElementById("v5"),
+document.getElementById("v6")
+
+]
+
+let valueIndex = 0
+
+function addValue(){
+
+if(valueIndex < values.length){
+
+values[valueIndex].style.opacity = 1
+
+valueIndex++
+
+}
+
+}
+
+/* QR сканер */
+
 let qrScanner
 
 startBtn.onclick = () => {
 
 document.getElementById("startScreen").style.display = "none"
+
 reader.style.display = "block"
 
 startScanner()
@@ -25,12 +52,12 @@ function startScanner(){
 qrScanner = new Html5Qrcode("reader")
 
 qrScanner.start(
+
 { facingMode: "environment" },
+
 { fps: 10, qrbox: 250 },
 
 (qrCodeMessage) => {
-
-/* остановить сканер */
 
 qrScanner.stop()
 
@@ -46,43 +73,60 @@ showDialog(0)
 
 }
 
-/* диалог */
+/* диалоги */
+
+let dialogStep = 0
 
 const dialog = [
 
 {
-text:"Здравствуйте! Добро пожаловать в холл Центротеха. Где ваши средства индивидуальной защиты?",
+
+text:"Привет! Добро пожаловать на производство Центротех. Где твои средства индивидуальной защиты?",
+
 answers:[
 { text:"Сейчас надену СИЗ", next:1 },
 { text:"А зачем они?", next:2 }
 ]
+
 },
 
 {
-text:"Отлично! На производстве безопасность — это культура.",
+
+text:"Отлично! Безопасность — одна из главных ценностей нашей компании.",
+
 answers:[
 { text:"Понятно", next:3 },
 { text:"Интересно", next:3 }
 ]
+
 },
 
 {
-text:"Без СИЗ на производство нельзя. Даже директор не сможет пройти.",
+
+text:"На производстве безопасность превыше всего. Без СИЗ на территорию нельзя.",
+
 answers:[
 { text:"Хорошо, надеваю", next:3 }
 ]
+
 },
 
 {
-text:"Наши инженеры разработали систему контроля доступа без СИЗ.",
+
+text:"Каждый сотрудник отвечает за свою безопасность и безопасность коллег.",
+
 answers:[
 { text:"Готов идти дальше", next:4 }
 ]
+
 },
 
 {
-text:"Отлично! Жду вас у дверей на производство.",
-answers:[]
+
+text:"Отлично! Идём к следующей точке.",
+
+answers:[ ]
+
 }
 
 ]
@@ -142,15 +186,5 @@ nextQR.style.display = "none"
 dialogStep = 0
 
 startScanner()
-
-}
-
-function addValue(){
-
-valuesFound++
-
-let opacity = 0.25 + valuesFound * 0.12
-
-valuesCircle.style.opacity = opacity
 
 }
