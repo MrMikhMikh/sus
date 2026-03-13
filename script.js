@@ -1,8 +1,11 @@
 const startBtn = document.getElementById("startScan")
+
 const reader = document.getElementById("reader")
+
 const centrikBox = document.getElementById("centrikBox")
 
 const speech = document.getElementById("speech")
+
 const answers = document.getElementById("answers")
 
 const nextQR = document.getElementById("nextQR")
@@ -33,7 +36,7 @@ qr.start(
 
 reader.style.display = "none"
 
-centrikBox.style.display = "block"
+centrikBox.style.display = "flex"
 
 showDialog(0)
 
@@ -128,6 +131,7 @@ answers.appendChild(btn)
 if(dialog[step].answers.length === 0){
 
 answers.innerHTML = ""
+
 nextQR.style.display = "block"
 
 }else{
