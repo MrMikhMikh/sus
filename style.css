@@ -22,3 +22,16 @@ background:#1976ff;
 color:white;
 
 }
+
+#centrik{
+
+position:fixed;
+bottom:120px;
+left:50%;
+transform:translateX(-50%);
+
+width:180px;
+
+z-index:5;
+
+}
