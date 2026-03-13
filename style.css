@@ -6,14 +6,9 @@ margin:0;
 font-family:Arial;
 overflow:hidden;
 
-background-image:url("assets/6.jpg");
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-background-attachment:fixed;
+background:url("assets/factory.jpg") center center / cover no-repeat fixed;
 
 height:100vh;
-
 }
 
 video{
