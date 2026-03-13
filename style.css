@@ -7,7 +7,7 @@ text-align:center;
 
 }
 
-/* стартовый экран */
+/* старт */
 
 #startScreen{
 
@@ -32,12 +32,11 @@ align-items:center;
 
 button{
 
-padding:15px 30px;
+padding:15px 25px;
 
-font-size:20px;
+font-size:18px;
 
 background:#2f80ed;
-
 color:white;
 
 border:none;
@@ -65,17 +64,27 @@ display:none;
 
 display:none;
 
-margin-top:30px;
+margin-top:20px;
 
 }
 
 #centrik{
 
-width:200px;
+width:180px;
 
 }
 
-/* облачко */
+/* диалог */
+
+#dialog{
+
+margin-top:10px;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+}
 
 #speech{
 
@@ -85,10 +94,48 @@ padding:15px;
 
 border-radius:10px;
 
-max-width:300px;
+max-width:320px;
 
-margin:auto;
+margin-bottom:10px;
 
-margin-top:10px;
+}
+
+/* ответы */
+
+#answers{
+
+display:flex;
+
+flex-direction:column;
+
+gap:10px;
+
+}
+
+.answer{
+
+padding:12px;
+
+border:none;
+
+border-radius:8px;
+
+background:#2f80ed;
+
+color:white;
+
+font-size:16px;
+
+}
+
+/* следующий QR */
+
+#nextQR{
+
+margin-top:20px;
+
+display:none;
+
+background:#27ae60;
 
 }

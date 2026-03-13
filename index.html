@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AR Центрик</title>
+<title>AR экскурсия Центрик</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -16,11 +16,11 @@
 
 <body>
 
-<!-- старт -->
+<!-- стартовый экран -->
 
 <div id="startScreen">
 
-<h2>Нажмите кнопку и отсканируйте QR</h2>
+<h2>Нажмите кнопку и сканируйте QR</h2>
 
 <button id="startScan">
 Сканировать QR
@@ -38,13 +38,24 @@
 
 <img src="assets/centrik.png" id="centrik">
 
-<div id="speech">
-Привет! Тут техника безопасности превыше всего. Одевай СИЗ!
+<div id="dialog">
+
+<div id="speech"></div>
+
+<div id="answers"></div>
+
 </div>
 
 </div>
+
+<!-- кнопка следующего QR -->
+
+<button id="nextQR">
+Сканировать следующий QR
+</button>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
