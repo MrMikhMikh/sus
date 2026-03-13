@@ -50,10 +50,15 @@ display:none;
 }
 
 #centrikBox{
-display:none;
-margin-top:20px;
-flex-direction:column;
-align-items:center;
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+  background-size:cover;
+  background-position:center;
+  background-color:#0b1b2b;
+  padding-top:20px;
+  box-sizing:border-box;
 }
 
 #centrik{
