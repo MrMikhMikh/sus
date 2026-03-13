@@ -419,6 +419,7 @@ function showDialog(step){
         centrikBox.style.display = "none"
         finishSound.play()
         finalScreen.style.display = "flex"
+        showFarewellMessage()
       }, 1500)
       return
     }
@@ -434,6 +435,43 @@ nextQR.onclick = () => {
   reader.style.display = "block"
   nextQR.style.display = "none"
   startScanner()
+}
+
+const farewellPhrases = [
+  "Ты прошёл весь маршрут от начала до конца. Я горжусь тобой — не каждый доходит до финала! 🦊",
+  "Сегодня ты увидел, как рождается оборудование, которое работает в самых суровых местах планеты. Теперь ты знаешь — за каждой деталью стоит человек.",
+  "Безопасность, уважение, команда, эффективность, ответственность, развитие — это не просто слова на стене. Это то, как здесь живут и работают каждый день.",
+  "Если когда-нибудь окажешься рядом с буровой и увидишь вибросито — вспомни нас. Возможно, оно сделано именно здесь. 😉",
+  "Спасибо, что был внимателен и любопытен. Такие люди нам и нужны. Может, ещё встретимся — уже как коллеги? 🚀"
+]
+
+function showFarewellMessage() {
+  const el = document.getElementById("finalSpeechText")
+  if (!el) return
+  let index = 0
+
+  function typePhrase(text, callback) {
+    el.textContent = ""
+    let i = 0
+    const interval = setInterval(() => {
+      el.textContent += text[i]
+      i++
+      if (i >= text.length) {
+        clearInterval(interval)
+        if (callback) setTimeout(callback, 2200)
+      }
+    }, 28)
+  }
+
+  function nextPhrase() {
+    if (index >= farewellPhrases.length) {
+      index = 0
+    }
+    typePhrase(farewellPhrases[index], nextPhrase)
+    index++
+  }
+
+  nextPhrase()
 }
 
 restartBtn.onclick = () => {
