@@ -1,53 +1,69 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AR тур Центрик</title>
+<title>AR Центрик</title>
 
-<link rel="stylesheet" href="style.css?v=1">
+<link rel="stylesheet" href="style.css">
+
+<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
 
 </head>
 
 <body>
 
-<!-- кнопка запуска камеры -->
+<!-- инструкция -->
 
-<button id="start">Запустить AR</button>
-
-<!-- круговая шкала -->
-
-<div id="progressCircle">
-<div id="circle">
-<div id="percent">0%</div>
-</div>
+<div id="startText">
+Нажмите на AR и сканируйте QR коды
 </div>
 
-<!-- камера -->
+<a-scene
+embedded
+arjs="sourceType: webcam; debugUIEnabled: false;"
+>
 
-<video id="camera" autoplay playsinline></video>
+<a-assets>
 
-<!-- центрик -->
+<img id="centrikImg" src="assets/centrik.png">
 
-<div id="centrikBox">
+</a-assets>
 
-<img id="centrik" src="assets/centrik.png">
+<!-- ТВОЙ QR МАРКЕР -->
 
-<div id="speech">
-Привет! Я Центрик. Нажми «Следующая точка», чтобы начать экскурсию.
-</div>
+<a-marker type="pattern" url="assets/marker.patt">
 
-</div>
+<!-- Центрик -->
 
-<!-- кнопка -->
+<a-plane
+src="#centrikImg"
+position="0 0.8 0"
+rotation="-90 0 0"
+width="1"
+height="1">
+</a-plane>
 
-<div id="ui">
-<button id="next">Следующая точка</button>
-</div>
+<!-- текст -->
 
-<script src="script.js?v=1"></script>
+<a-text
+value="Привет!\nТут техника безопасности превыше всего.\nОдевай СИЗ!"
+align="center"
+color="#ffffff"
+position="0 1.7 0"
+rotation="-90 0 0"
+width="4">
+</a-text>
+
+</a-marker>
+
+<a-entity camera></a-entity>
+
+</a-scene>
 
 </body>
 </html>

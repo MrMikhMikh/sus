@@ -1,157 +1,32 @@
-html,body{
-height:100%;
+body{
+
 margin:0;
-font-family:Arial;
 overflow:hidden;
-background:url("assets/6.jpg") center/cover no-repeat;
-}
-
-/* камера */
-
-video{
-
-position:fixed;
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-object-fit:cover;
-
-display:none;
+font-family:Arial;
 
 }
 
-/* кнопка запуска */
+/* текст инструкции */
 
-#start{
-
-position:fixed;
-
-top:45%;
-left:50%;
-
-transform:translate(-50%,-50%);
-
-padding:20px 40px;
-
-font-size:22px;
-
-background:#2f80ed;
-color:white;
-
-border:none;
-border-radius:12px;
-
-z-index:20;
-
-}
-
-/* центрик */
-
-#centrikBox{
+#startText{
 
 position:fixed;
 
-bottom:160px;
+top:30px;
 left:50%;
 
 transform:translateX(-50%);
 
-text-align:center;
-
-z-index:10;
-
-}
-
-#centrik{
-width:110px;
-}
-
-/* облачко */
-
-#speech{
-
 background:white;
 
-padding:12px 18px;
-
-border-radius:14px;
-
-margin-top:10px;
-
-font-size:16px;
-
-max-width:280px;
-
-}
-
-/* кнопка следующей точки */
-
-#ui{
-
-position:fixed;
-
-bottom:40px;
-
-width:100%;
-
-display:flex;
-
-justify-content:center;
-
-z-index:10;
-
-}
-
-#next{
-
-padding:16px 28px;
-
-font-size:18px;
-
-background:#2f80ed;
-
-color:white;
-
-border:none;
+padding:15px 25px;
 
 border-radius:10px;
 
-}
-
-/* круговая шкала */
-
-#progressCircle{
-
-position:fixed;
-
-top:20px;
-right:20px;
-
-z-index:30;
-
-}
-
-#circle{
-
-width:90px;
-height:90px;
-
-border-radius:50%;
-
-background:conic-gradient(#2f80ed 0deg,#e5e5e5 0deg);
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-}
-
-#percent{
-
 font-size:18px;
-font-weight:bold;
+
+z-index:10;
+
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
 
 }
