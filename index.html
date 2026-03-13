@@ -9,6 +9,8 @@
 
 <link rel="stylesheet" href="style.css">
 
+<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+
 </head>
 
 <body>
@@ -93,6 +95,23 @@ alert("Экскурсия завершена!")
 }
 
 </script>
+
+<a-scene embedded>
+
+<a-assets>
+<a-asset-item id="machine" src="assets/machine.glb"></a-asset-item>
+</a-assets>
+
+<a-entity
+gltf-model="#machine"
+position="0 0 -3"
+scale="0.4 0.4 0.4"
+rotation="0 180 0">
+</a-entity>
+
+<a-entity camera></a-entity>
+
+</a-scene>
 
 </body>
 </html>
