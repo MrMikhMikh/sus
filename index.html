@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="style.css">
 
 <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-ar-hit-test-component/dist/aframe-ar-hit-test-component.min.js"></script>
 
 </head>
 
@@ -40,11 +41,10 @@
 </a-assets>
 
 <a-entity
-id="machineModel"
 gltf-model="#machine"
-position="0 0 -2"
-scale="0.3 0.3 0.3"
-visible="false">
+position="0 0 -1"
+scale="1 1 1"
+rotation="0 180 0">
 </a-entity>
 
 <a-entity camera></a-entity>
