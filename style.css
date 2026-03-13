@@ -7,7 +7,32 @@ text-align:center;
 
 }
 
-/* стартовый экран */
+/* круг ценностей */
+
+#valuesHUD{
+
+position:fixed;
+
+top:20px;
+right:20px;
+
+width:110px;
+
+z-index:999;
+
+}
+
+#valuesCircle{
+
+width:100%;
+
+opacity:0.25;
+
+transition:0.6s;
+
+}
+
+/* старт */
 
 #startScreen{
 
@@ -88,7 +113,6 @@ margin-bottom:20px;
 #dialog{
 
 width:90%;
-
 max-width:350px;
 
 display:flex;
@@ -158,30 +182,5 @@ margin-top:20px;
 display:none;
 
 background:#27ae60;
-
-}
-
-/* круг ценностей */
-
-#valuesHUD{
-
-position:fixed;
-
-top:20px;
-right:20px;
-
-width:110px;
-
-z-index:999;
-
-}
-
-#valuesCircle{
-
-width:100%;
-
-opacity:0.25;
-
-transition:0.6s;
 
 }
