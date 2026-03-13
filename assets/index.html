@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AR экскурсия Центротех</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+
+<div id="valuesHUD">
+<img src="assets/values.png" id="valuesCircle">
+</div>
+
+<div id="startScreen">
+<div id="startLogos">
+  <img src="assets/logo_tvel.png" id="logoTvel">
+  <img src="assets/logo_centrotex.png" id="logoCentrotex">
+</div>
+<h2>Нажмите кнопку и сканируйте QR код</h2>
+<button id="startScan">Сканировать QR</button>
+</div>
+
+<div id="reader"></div>
+
+<div id="centrikBox">
+<img src="assets/centrik.png" id="centrik">
+<div id="dialog">
+<div id="speech"></div>
+<div id="answers"></div>
+</div>
+<button id="nextQR">Сканировать следующий QR</button>
+</div>
+
+<div id="finalScreen">
+  <div id="finalTop">
+    <img src="assets/values.png" id="finalLogo">
+    <div id="finalLogos">
+      <img src="assets/logo_tvel.png" id="finalLogoTvel">
+      <img src="assets/logo_centrotex.png" id="finalLogoCentrotex">
+    </div>
+  </div>
+  <div id="finalCentrikWrap">
+    <img src="assets/centrik.png" id="finalCentrik">
+    <div id="finalSpeech">
+      <p id="finalSpeechText"></p>
+    </div>
+  </div>
+  <div id="finalBottom">
+    <h1 id="finalTitle">Ты собрал все ценности!</h1>
+    <p id="finalSub">Добро пожаловать в команду Центротех</p>
+    <button id="restart">Начать заново</button>
+  </div>
+</div>
+
+<audio id="bgMusic" src="assets/sound/music.mp3" loop></audio>
+<audio id="clickSound" src="assets/sound/click.mp3"></audio>
+<audio id="valueSound" src="assets/sound/value.mp3"></audio>
+<audio id="finishSound" src="assets/sound/finish.mp3"></audio>
+
+<script src="script.js"></script>
+
+</body>
+</html>
