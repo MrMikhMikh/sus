@@ -1,25 +1,23 @@
 body{
-
 margin:0;
-overflow:hidden;
 font-family:Arial;
-
+overflow:hidden;
 }
 
-/* текст инструкции */
+/* инструкция */
 
-#startText{
+#instruction{
 
 position:fixed;
 
-top:30px;
+top:20px;
 left:50%;
 
 transform:translateX(-50%);
 
 background:white;
 
-padding:15px 25px;
+padding:12px 20px;
 
 border-radius:10px;
 
@@ -27,6 +25,73 @@ font-size:18px;
 
 z-index:10;
 
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* диалог */
+
+#dialog{
+
+position:fixed;
+
+bottom:40px;
+
+width:100%;
+
+display:flex;
+
+justify-content:center;
+
+z-index:10;
+
+}
+
+#text{
+
+background:white;
+
+padding:15px 20px;
+
+border-radius:12px;
+
+max-width:300px;
+
+font-size:16px;
+
+}
+
+/* круг прогресса */
+
+#progress{
+
+position:fixed;
+
+top:20px;
+
+right:20px;
+
+z-index:10;
+
+}
+
+#circle{
+
+width:90px;
+height:90px;
+
+border-radius:50%;
+
+background:conic-gradient(#2f80ed 0deg,#e5e5e5 0deg);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+#percent{
+
+font-weight:bold;
+
+font-size:18px;
 
 }

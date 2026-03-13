@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AR Центрик</title>
+<title>AR экскурсия Центрик</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -17,53 +17,50 @@
 
 <body>
 
-<!-- инструкция -->
+<div id="instruction">
+Наведите камеру на QR-код точки
+</div>
 
-<div id="startText">
-Нажмите на AR и сканируйте QR коды
+<div id="progress">
+
+<div id="circle">
+<div id="percent">0%</div>
+</div>
+
+</div>
+
+<div id="dialog">
+<div id="text">Сканируй первую точку</div>
 </div>
 
 <a-scene
 embedded
-arjs="sourceType: webcam; debugUIEnabled: false;"
+arjs="sourceType: webcam; debugUIEnabled:false;"
 >
 
 <a-assets>
 
-<img id="centrikImg" src="assets/centrik.png">
+<img id="centrik" src="assets/centrik.png">
 
 </a-assets>
 
-<!-- ТВОЙ QR МАРКЕР -->
-
 <a-marker type="pattern" url="assets/marker.patt">
 
-<!-- Центрик -->
-
 <a-plane
-src="#centrikImg"
-position="0 0.8 0"
+src="#centrik"
+position="0 0.9 0"
 rotation="-90 0 0"
 width="1"
 height="1">
 </a-plane>
-
-<!-- текст -->
-
-<a-text
-value="Привет!\nТут техника безопасности превыше всего.\nОдевай СИЗ!"
-align="center"
-color="#ffffff"
-position="0 1.7 0"
-rotation="-90 0 0"
-width="4">
-</a-text>
 
 </a-marker>
 
 <a-entity camera></a-entity>
 
 </a-scene>
+
+<script src="script.js"></script>
 
 </body>
 </html>
