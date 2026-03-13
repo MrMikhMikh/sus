@@ -1,3 +1,4 @@
+
 const startBtn = document.getElementById("startScan")
 const reader = document.getElementById("reader")
 const centrikBox = document.getElementById("centrikBox")
