@@ -10,75 +10,39 @@
 
 <link rel="stylesheet" href="style.css">
 
-<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+<script src="https://unpkg.com/html5-qrcode"></script>
 
 </head>
 
 <body>
 
-<!-- стартовый экран -->
+<!-- старт -->
 
 <div id="startScreen">
 
 <h2>Нажмите кнопку и отсканируйте QR</h2>
 
-<button id="startAR">
+<button id="startScan">
 Сканировать QR
 </button>
 
 </div>
 
-<!-- статус -->
+<!-- камера -->
 
-<div id="status">
-QR не найден
-</div>
+<div id="reader"></div>
 
-<!-- диалог -->
+<!-- центрик -->
 
-<div id="dialog">
-<div id="text"></div>
-</div>
+<div id="centrikBox">
 
-<!-- круг -->
+<img src="assets/centrik.png" id="centrik">
 
-<div id="progress">
-
-<div id="circle">
-<div id="percent">0%</div>
+<div id="speech">
+Привет! Тут техника безопасности превыше всего. Одевай СИЗ!
 </div>
 
 </div>
-
-<!-- AR сцена -->
-
-<a-scene
-id="scene"
-embedded
-arjs="sourceType: webcam; debugUIEnabled:false;"
-style="display:none"
->
-
-<a-assets>
-
-<img id="centrikImg" src="assets/centrik.png">
-
-</a-assets>
-
-<a-marker type="pattern" url="assets/marker.patt">
-
-<a-image
-src="#centrikImg"
-position="0 0.5 0"
-scale="0.25 0.25 0.25">
-</a-image>
-
-</a-marker>
-
-<a-entity camera></a-entity>
-
-</a-scene>
 
 <script src="script.js"></script>
 

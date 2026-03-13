@@ -1,101 +1,41 @@
-const startBtn = document.getElementById("startAR")
-const scene = document.getElementById("scene")
-const startScreen = document.getElementById("startScreen")
-
-const text = document.getElementById("text")
-const status = document.getElementById("status")
-
-const percent = document.getElementById("percent")
-const circle = document.getElementById("circle")
-
-let step = 0
-let collected = 0
+const startBtn = document.getElementById("startScan")
+const reader = document.getElementById("reader")
+const centrikBox = document.getElementById("centrikBox")
 
 startBtn.onclick = () => {
 
-startScreen.style.display = "none"
-scene.style.display = "block"
+document.getElementById("startScreen").style.display = "none"
+
+reader.style.display = "block"
+
+startScanner()
 
 }
 
-const dialogs = [
+function startScanner(){
 
-"Привет! Тут техника безопасности превыше всего. Одевай СИЗ.",
+const qr = new Html5Qrcode("reader")
 
-"Холл. Здесь сотрудники получают средства индивидуальной защиты.",
+qr.start(
 
-"Дверь на производство. Безопасность всегда на первом месте.",
+{ facingMode: "environment" },
 
-"Участок №3 — изготовление систем очистки бурового раствора.",
+{ fps: 10, qrbox: 250 },
 
-"Это вибросито — важная часть системы очистки.",
+(qrCodeMessage) => {
 
-"Участок покраски систем очистки.",
+console.log("QR найден:", qrCodeMessage)
 
-"Механосборочный участок.",
+reader.style.display = "none"
 
-"Здесь работает оператор ЧПУ.",
+centrikBox.style.display = "block"
 
-"Здесь работает токарь.",
+},
 
-"Здесь работает слесарь.",
-
-"Поздравляю! Ты прошёл весь маршрут."
-
-]
-
-const values = {
-
-1:"Безопасность",
-2:"Ответственность за результат",
-3:"Уважение",
-6:"Единая команда",
-7:"Эффективность",
-10:"На шаг впереди"
+(errorMessage) => {
 
 }
 
-const marker = document.querySelector("a-marker")
-
-marker.addEventListener("markerFound", () => {
-
-status.innerText = "QR найден"
-
-step++
-
-if(step < dialogs.length){
-
-text.innerText = dialogs[step]
-
-}
-
-if(values[step]){
-
-collected++
-
-updateCircle()
-
-text.innerText += "\n⭐ Ценность: " + values[step]
-
-}
-
-})
-
-marker.addEventListener("markerLost", () => {
-
-status.innerText = "QR не найден"
-
-})
-
-function updateCircle(){
-
-let progress = Math.round((collected/6)*100)
-
-percent.innerText = progress + "%"
-
-let deg = progress * 3.6
-
-circle.style.background =
-`conic-gradient(#2f80ed ${deg}deg,#e5e5e5 ${deg}deg)`
+)
 
 }
